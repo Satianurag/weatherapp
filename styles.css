@@ -8,24 +8,47 @@ body {
     height: 100vh;
 }
 
-.weather-container {
+main {
     text-align: center;
+}
+
+.weather-container {
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+    max-width: 400px; /* Limit width for better readability on larger screens */
+    width: 100%;
+    box-sizing: border-box; /* Include padding and border in the width */
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
 }
 
 input {
-    padding: 8px;
-    margin-right: 8px;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box; /* Include padding and border in the width */
 }
 
 button {
-    padding: 8px;
+    padding: 10px;
     cursor: pointer;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #45a049;
 }
 
 #weatherInfo {
     margin-top: 20px;
+    font-size: 16px;
+    color: #333;
 }

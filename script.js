@@ -2,14 +2,15 @@ const apiKey = '80f98a028b75c790d7b933199ef9e197';
 
 async function getWeather() {
     const cityInput = document.getElementById('cityInput');
-    const cityName = cityInput.value;
+    const cityName = cityInput.value.trim(); // Trim to remove leading and trailing whitespaces
 
     if (!cityName) {
         alert('Please enter a city name');
         return;
     }
 
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`;
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(cityName)}&appid=${apiKey}`;
+    
     try {
         const response = await fetch(apiUrl);
         const data = await response.json();
@@ -17,7 +18,7 @@ async function getWeather() {
         if (response.ok) {
             displayWeather(data);
         } else {
-            alert(`Error: ${data.message}`);
+            alert(`Error: ${data.message || response.statusText}`);
         }
     } catch (error) {
         console.error('Error fetching weather data:', error);
@@ -36,3 +37,10 @@ function displayWeather(data) {
 
     weatherInfo.innerHTML = html;
 }
+
+// Add an event listener to trigger getWeather() when the Enter key is pressed
+document.getElementById('cityInput').addEventListener('keyup', function (event) {
+    if (event.key === 'Enter') {
+        getWeather();
+    }
+});

@@ -7,12 +7,20 @@
     <title>Weather App</title>
 </head>
 <body>
-    <div class="weather-container">
+    <header>
         <h1>Weather App</h1>
-        <input type="text" id="cityInput" placeholder="Enter city">
-        <button onclick="getWeather()">Get Weather</button>
-        <div id="weatherInfo"></div>
-    </div>
+    </header>
+    <main>
+        <div class="weather-container">
+            <label for="cityInput">Enter City:</label>
+            <input type="text" id="cityInput" placeholder="e.g., New York">
+            <button onclick="getWeather()">Get Weather</button>
+            <div id="weatherInfo"></div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 Weather App</p>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>
